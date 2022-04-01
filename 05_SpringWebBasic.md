@@ -72,3 +72,58 @@ public class HelloController {
 6. hello-template.html에서는 모델을 받아, 모델의 데이터를 html에 담아 출력한다.
   - <p th:text="~">hello! empty</p>를 통해 값이 전달될 경우, <p>태그의 값은 "~"으로 대체된다.
 
+# API
+- 입력받은? 데이터를 가공하여 반환하는 메소드?
+```java
+/** hello/hellospring/controller/HelloController.java **/
+@Controller
+public class HelloController {
+  /** API 1. **/
+  @GetMapping("hello-string")
+  @ResponseBody // http의 응답 body부분에 데이터를 넣겠다는 의미
+  public String helloString(@RequestParam("name") String name){
+    return "hello "+name;
+  }
+  
+  /** API 2. **/
+  @GetMapping("hello-api")
+  @ResponseBody
+  public Hello helloApi(@RequestParam("name") String name){
+    Hello hello = new Hello();
+    hello.setName(name);
+    return hello;
+  }
+  static class Hello{
+    private String name;
+
+    /** getter, setter 설정키 : alt + insert**/
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+  }
+}
+```
+## API 1.
+- localhost:8080/hello-string?name=testString 으로 요청이 들어온다.
+- @ResponseBody 코드를 보고 컨트롤러는 viewResolve가 아닌 응답 요청을 생성한다. (HttpMessageConverter)
+- 컨트롤러에서 "hello " + "testString"의 값을 반환하는데, 응답 요청의 바디(Response body)에 값이 들어간다.
+- 웹 브라우저에 "hello testString"이 출력된다.
+- 특징
+  - 순수 데이터만 반환이 된다.
+
+## API 2.
+- localhost:8080/hello-api?name=testString 으로 요청이 들어온다.
+- @ResponseBody 코드를 보고 컨트롤러는 viewResolve가 아닌 응답 요청을 생성한다. (HttpMessageConverter)
+- 컨트롤러에서 객체를 생성하고, setName을 통해 객체에 데이터를 저장한다.
+- 객체를 반환하는데, 응답 요청의 바디(Response body)에 객체가 들어간다. -> 이는 제이슨(json)형식으로 된다.
+- 웹 브라우저에 {"name":"testString"}이 출력된다.
+- 특징
+  - 객체가 반환되며, 제이슨 형식으로 반환이 된다.
+
+## HttpMessageConverter
+- 기본 문자처리 : StringHttpMessageConverter
+- 기본 객체처리 : MappingJackson2HttpMessageConverter
