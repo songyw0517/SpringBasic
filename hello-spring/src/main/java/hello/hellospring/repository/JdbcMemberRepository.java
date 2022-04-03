@@ -7,6 +7,7 @@ package hello.hellospring.repository;
         import java.util.List;
         import java.util.Optional;
 public class JdbcMemberRepository implements MemberRepository {
+    /** 순수 jdbc로 작성할 경우.. 코드가 너무 길어진다. **/
     private final DataSource dataSource;
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;
