@@ -7,7 +7,7 @@
 - https://start.spring.io
 
 ## Step 2. 프로젝트 선택
-![img.png](imgs/spring_boot_setting.png)
+![img.png](../imgs/spring_boot_setting.png)
 1. Gradle Project 선택
 2. Java 선택
 3. Spring Boot 선택
@@ -24,4 +24,4 @@
 - 압축 푼 폴더로 이동, build.gradle 선택 후 Open as Project로 열기
 
 ## Step 4. Intellij의 setting 설정
-![img.png](imgs/Intellij_setting.png)
+![img.png](../imgs/Intellij_setting.png)
