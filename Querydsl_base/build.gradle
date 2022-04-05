@@ -1,4 +1,5 @@
 buildscript {
+	// Querydsl 초기 설정 코드
 	// queryDslVersion 버전추가
 	ext {
 		queryDslVersion = "5.0.0"
@@ -9,6 +10,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.6'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 
+	// Querydsl 초기 설정 코드
 	//querydsl 추가
 	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 
@@ -34,6 +36,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+	// Querydsl 초기 설정 코드
 	//querydsl 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
@@ -52,7 +55,8 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-
+// Querydsl 초기 설정 코드
+// 테스트코드이다
 /querydsl 추가 시작/
 def querydslDir = "$buildDir/generated/querydsl"
 
