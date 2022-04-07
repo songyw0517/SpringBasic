@@ -17,6 +17,6 @@ public class SpringConfig {
 
 
     @Bean
-    public UserService userservice(){return new UserService(this.userRepository);}
+    public UserService userservice(){return new UserService(userRepository);}
 
 }
