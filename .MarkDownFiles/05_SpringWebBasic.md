@@ -4,6 +4,7 @@
 - API
 
 # Spring에서의 정적 컨텐츠, static
+- 파일을 그대로 보여주는 컨텐츠
 ```html
 <!-- resources/static/hello-static.html -->
 <!doctype html>
@@ -32,6 +33,9 @@
 <hr>
 
 # Spring에서의 MVC와 템플릿 엔진
+- 서버에서 처리해서 보여주는 방식
+<br>
+
 - MVC : 
   - Model
   - View : 화면에 보여지는 부분
