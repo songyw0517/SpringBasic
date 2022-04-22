@@ -37,9 +37,9 @@
 <br>
 
 - MVC : 
-  - Model
-  - View : 화면에 보여지는 부분
-  - Controller : 서버 로직, back-end 부분
+  - Model : 
+  - View : 화면에 보여지는 부분에 집중
+  - Controller : 비즈니스 로직, 서버 로직에 집중, back-end 부분
 ```java
 /** hello/hellospring/controller/HelloController.java **/
 

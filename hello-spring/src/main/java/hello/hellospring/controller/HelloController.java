@@ -22,22 +22,26 @@ public class HelloController {
      * resources/templates/hello.html에 model을 전달한다.
      * **/
 
-
+    
+    /** MVC 매핑 **/
+    // name을 받아 hello-template에 전달
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam("name") String name, Model model){
         model.addAttribute("name", name);
         return "hello-template";
     }
 
-    /** API **/
+    /** API 1**/
     @GetMapping("hello-string")
     @ResponseBody // http의 body부분에 데이터를 넣겠다는 의미
     public String helloString(@RequestParam("name") String name){
         return "hello "+name;
     }
 
+    /** API 2 **/
+    /** 만약 객체를 통째로 반환할 경우, json 형식으로 반환된다.**/
     @GetMapping("hello-api")
-    @ResponseBody
+    @ResponseBody // 데이터를 전달하겠다는 의미
     public Hello helloApi(@RequestParam("name") String name){
         Hello hello = new Hello();
         hello.setName(name);
